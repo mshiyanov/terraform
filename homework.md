@@ -39,12 +39,12 @@ parents: 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5b
 
 ## 4. Коммиты между v0.12.23 и v0.12.24
 
-Команда:
+## 4. Коммиты между v0.12.23 и v0.12.24
 
+Команда:
+```bash
 git log --format="%H %s" v0.12.23..v0.12.24
 
-
-root@github:/home/shiyanovmn/terraform# git log --format="%H %s" v0.12.23..v0.12.24
 33ff1c03bb960b332be3af2e333462dde88b279e v0.12.24
 b14b74c4939dcab573326f4e3ee2a62e23e12f89 [Website] vmc provider links
 3f235065b9347a758efadc92295b540ee0a5e26e Update CHANGELOG.md
