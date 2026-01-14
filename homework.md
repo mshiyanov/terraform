@@ -75,7 +75,7 @@ diff --git a/provider_source.go b/provider_source.go
 new file mode 100644
 ```
 
-##6. Коммиты, где менялась globalPluginDirs
+## 6. Коммиты, где менялась globalPluginDirs
 
 Команда:
 ```bash
