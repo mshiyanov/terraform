@@ -10,32 +10,32 @@ git clone https://github.com/hashicorp/terraform.git
 ## 1. Коммит с префиксом aefea
 
 Команда:
-
+```bash
 git show -s --format="%H %s" aefea
 
 root@github:/home/shiyanovmn/terraform# git show -s --format="%H %s" aefea
 aefead2207ef7e2aa5dc81a34aedf0cad4c32545 Update CHANGELOG.md
-
+```
 
 ## 2. Тег для коммита 85024d3
 
 Команда:
-
+```bash
 git tag --points-at 85024d3
 
 root@github:/home/shiyanovmn/terraform# git tag --points-at 85024d3
 v0.12.23
-
+```
 
 ## 3. Сколько родителей у коммита b8d720? Написать их хеши
 
 Команда:
-
+```bash
 git show -s --format="parents: %P" b8d720
 
 root@github:/home/shiyanovmn/terraform# git show -s --format="parents: %P" b8d720
 parents: 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b
-
+```
 
 
 ## 4. Коммиты между v0.12.23 и v0.12.24
@@ -65,21 +65,20 @@ dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
 ```bash
 git log -S "func providerSource" --oneline --reverse
 
-git log -S "func providerSource" --oneline --reverse
 8c928e8358 main: Consult local directories as potential mirrors of providers
 5af1e6234a main: Honor explicit provider_installation CLI config when present
 ```
 
 Далее я посмотрел git show 8c928e8358 и убедился, что в выводе есть:
-
+```bash
 diff --git a/provider_source.go b/provider_source.go
 new file mode 100644
-
+```
 
 ##6. Коммиты, где менялась globalPluginDirs
 
 Команда:
-
+```bash
 git log -S "globalPluginDirs" --oneline
 
 root@github:/home/shiyanovmn/terraform# git log -S "globalPluginDirs" --oneline
@@ -91,51 +90,53 @@ root@github:/home/shiyanovmn/terraform# git log -S "globalPluginDirs" --oneline
 35a058fb3d main: configure credentials from the CLI config file
 c0b1761096 prevent log output during init
 8364383c35 Push plugin discovery down into command package
-
+```
 Посмотрел один из коммитов:
 
 Команда:
+```bash
 git show 8364383c35
-
+```
 В нем нашел подтверждение:
-
+```bash
 diff --git a/plugins.go b/plugins.go
 new file mode 100644
 
 func globalPluginDirs() []string {
-
+```
 ## 7. Кто автор функции synchronizedWriters
 
 В текущей версии репозитория определение функции не найдено:
 
 Команда:
-
+```bash
 root@github:/home/shiyanovmn/terraform# git grep -n "func synchronizedWriters"
 root@github:/home/shiyanovmn/terraform#
 root@github:/home/shiyanovmn/terraform#
 root@github:/home/shiyanovmn/terraform# git grep -n "synchronizedWriters"
 root@github:/home/shiyanovmn/terraform# git grep -n "synchronizedWriter"
 root@github:/home/shiyanovmn/terraform# git grep -n "SynchronizedWriters"
-
+```
 Поэтому был выполнен поиск по истории репозитория:
 
 Команда:
-
+```bash
 git log -G "func synchronizedWriters" --oneline --reverse
 
 root@github:/home/shiyanovmn/terraform# git log -G "func synchronizedWriters" --oneline --reverse
 5ac311e2a9 main: synchronize writes to VT100-faker on Windows
 bdfea50cc8 remove unused
-
+```
 Команда показала, что функция была добавлена в коммите:
-
+```bash
 5ac311e2a9 — main: synchronize writes to VT100-faker on Windows
-
+```
 Автор функции был получен из информации о коммите:
 
 Команда:
-
+```bash
 git show -s --format="%an <%ae>" 5ac311e2a9
 
 root@github:/home/shiyanovmn/terraform# git show -s --format="%an <%ae>" 5ac311e2a9
 Martin Atkins <mart@degeneration.co.uk>
+```
