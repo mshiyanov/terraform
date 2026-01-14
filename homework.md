@@ -37,7 +37,6 @@ root@github:/home/shiyanovmn/terraform# git show -s --format="parents: %P" b8d72
 parents: 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b
 
 
-## 4. Коммиты между v0.12.23 и v0.12.24
 
 ## 4. Коммиты между v0.12.23 и v0.12.24
 
@@ -55,7 +54,7 @@ d5f9411f5108260320064349b757f55c09bc4b80 command: Fix bug when using terraform l
 4b6d06cc5dcb78af637bbb19c198faff37a066ed Update CHANGELOG.md
 dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
 225466bc3e5f35baa5d07197bbc079345b77525e Cleanup after v0.12.23 release
-
+```
 
 ## 5. Найдите коммит, в котором была создана функция func providerSource
 
@@ -63,13 +62,13 @@ dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
 использовалась команда:
 
 Команда:
-
+```bash
 git log -S "func providerSource" --oneline --reverse
 
-root@github:/home/shiyanovmn/terraform# git log -S "func providerSource" --oneline --reverse
+git log -S "func providerSource" --oneline --reverse
 8c928e8358 main: Consult local directories as potential mirrors of providers
 5af1e6234a main: Honor explicit provider_installation CLI config when present
-
+```
 
 Далее я посмотрел git show 8c928e8358 и убедился, что в выводе есть:
 
